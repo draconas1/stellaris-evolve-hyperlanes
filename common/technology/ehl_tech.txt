@@ -1,0 +1,65 @@
+tech_hyperlane_manipulation = {
+	area = physics
+	category = { field_manipulation }
+	tier = 1
+	cost = @tier1cost3
+	prerequisites = { "tech_hyper_drive_1" }
+	weight = @tier1weight2
+	
+	potential = {
+		has_global_flag = EHL_STARBASE_CHOICE
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}			
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+}
+
+tech_hyperlane_manipulation_random = {
+	area = physics
+	category = { field_manipulation }
+	tier = 1
+	cost = @tier1cost3
+	prerequisites = { "tech_hyper_drive_1" }
+	weight = @tier1weight2
+	
+	potential = {
+		has_global_flag = EHL_STARBASE_RANDOM
+	}
+		
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}			
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_field_manipulation"
+			}
+		}
+	}
+}
