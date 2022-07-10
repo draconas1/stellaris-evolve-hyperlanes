@@ -359,13 +359,16 @@ country_event = {
 
 	option = {
 		name = "ehl_proj_event.19.b"
-		event_target:ehl_progenitor_system = {
-			starbase = {
-				remove_starbase_building = { 
-					building = hyperlane_progenitor
-				}
-				remove_starbase_building = { 
-					building = hyperlane_progenitor_r
+		custom_tooltip = "ehl_proj_event.19.b.tooltip"
+		hidden_effect = {
+			event_target:ehl_progenitor_system = {
+				starbase = {
+					remove_starbase_building = { 
+						building = hyperlane_progenitor
+					}
+					remove_starbase_building = { 
+						building = hyperlane_progenitor_r
+					}
 				}
 			}
 		}
@@ -496,8 +499,8 @@ event = {
 								remove_star_flag = ehl_hlp_r
 								OWNER = {
 									create_message = {
-										type = EHL_HYPERLANE_SHIFT_1
-										localization = EHL_HYPERLANE_SHIFT_1_DESC
+										type = EHL_HYPERLANE_SHIFT_3
+										localization = EHL_HYPERLANE_SHIFT_3_DESC
 										days = 20
 										target = PREV
 										variable = {

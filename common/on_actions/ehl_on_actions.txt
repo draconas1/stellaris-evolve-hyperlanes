@@ -68,3 +68,24 @@ on_mid_game_pulse = {
 		ehl_event.60
 	}
 }
+
+# A Megastructure has been built
+# Root = Country
+# From = Megastructure
+# FromFrom = System
+# FromFromFrom = Fleet
+on_megastructure_built = {
+	events = {
+		ehl_event.10
+	}
+}
+
+# A Megastructure has been upgraded
+# Root = Country
+# From = Megastructure
+# FromFrom = System
+on_megastructure_upgraded = {
+	events = {
+		ehl_event.10
+	}
+}

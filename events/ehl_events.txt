@@ -243,7 +243,33 @@ country_event = {
 }
 
 
+#event 6 - Background
+# Hyper relay flagging
+# A Megastructure has been built
+# Root = Country
+# From = Megastructure
+# FromFrom = System
+# FromFromFrom = Fleet
+country_event = {
+	id = ehl_event.10
+	hide_window = yes
+	is_triggered_only = yes
 
+	trigger = {
+		FROM = {
+			OR = {
+				is_megastructure_type = hyper_relay 
+				is_megastructure_type = hyper_relay_restored
+			}			
+		}
+	}
+
+	immediate = {
+		FromFrom = {
+			set_star_flag = ehl_hyperrelay
+		}
+	}
+}
 
 
 #Event 50 - Yearly Pulse

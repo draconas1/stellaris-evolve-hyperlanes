@@ -73,9 +73,10 @@
  ehl_proj_event.19.desc:0 "Engineers based in §Y[event_target:ehl_progenitor_system.solar_system.GetName]§! report that there are no more candidates for the local $sm_hyperlane_progenitor$ to connect to."
  ehl_proj_event.19.a:0 "Noted"
  ehl_proj_event.19.b:0 "Dismantle the $sm_hyperlane_progenitor$ then"
+ ehl_proj_event.19.b.tooltip:0 "The §Y$sm_hyperlane_progenitor$§! in §Y[event_target:ehl_progenitor_system.solar_system.GetName]§! will be dismantled"
 
  ehl_proj_event.20.name:0 "Failed to create hyperlane connection"
- ehl_proj_event.20.desc:0 "Engineers based §Y[event_target:ehl_progenitor_system.solar_system.GetName]§! report that the hyperlane failed to form to §Y[event_target:ehl_progenitor_target_selected.solar_system.GetName]§!\nA $sm_hyperlane_registrar$ could be present or there is a unknown phenomenon responsible."
+ ehl_proj_event.20.desc:0 "Engineers based §Y[event_target:ehl_progenitor_system.solar_system.GetName]§! report that the hyperlane failed to form to §Y[event_target:ehl_progenitor_target_selected.solar_system.GetName]§!\nA §Y$sm_hyperlane_registrar$§! could be present or there is a unknown phenomenon responsible."
  ehl_proj_event.20.a:0 "Noted"
 
  ehl_diss_event.32.name:0 "$sm_hyperlane_disentangler$ Primed"
@@ -96,7 +97,8 @@
  ehl_diss_event.39.desc:0 "Engineers in the §Y[event_target:ehl_disentangler_system.solar_system.GetName]§! report that there are no more candidates for the local $sm_hyperlane_disentangler$ to abolish a connection with. Artificially isolating a star isn't possible."
  ehl_diss_event.39.a:0 "Noted"
  ehl_diss_event.39.b:0 "Dismantle the $sm_hyperlane_disentangler$ then"
+ ehl_diss_event.39.tooltip:0 "The §Y$sm_hyperlane_disentangler$§! in §Y[event_target:ehl_disentangler_system.solar_system.GetName]§! will be dismantled"
 
  ehl_diss_event.40.name:0 "Failed to break hyperlane connection"
- ehl_diss_event.40.desc:0 "Engineers in the §Y[event_target:ehl_disentangler_system.solar_system.GetName]§! report that the $sm_hyperlane_disentangler$ was unable to break the hyperlane to §Y[event_target:ehl_disentangler_target_selected.GetName]§!. A $sm_hyperlane_registrar$ could be present."
+ ehl_diss_event.40.desc:0 "Engineers in the §Y[event_target:ehl_disentangler_system.solar_system.GetName]§! report that the $sm_hyperlane_disentangler$ was unable to break the hyperlane to §Y[event_target:ehl_disentangler_target_selected.GetName]§!. A §Y$sm_hyperlane_registrar$§! could be present."
  ehl_diss_event.40.a:0 "Noted"
