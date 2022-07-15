@@ -2,21 +2,27 @@
  #ALERTS
  EHL_HYPERLANE_SHIFT_1_TITLE:0 "Galactic Hyperlane Shift"
  EHL_HYPERLANE_SHIFT_1_MESSAGE:0 "Galactic HyperLane Shift"
- EHL_HYPERLANE_SHIFT_1_DESC:0 "$SYSTEM|Y$ has gained a HyperLane connection"
+ EHL_HYPERLANE_SHIFT_1_DESC:0 "$SYSTEM|Y$ has gained a HyperLane connection to $TO_SYSTEM|Y$"
  EHL_HYPERLANE_SHIFT_2_TITLE:0 "Galactic Hyperlane Shift"
  EHL_HYPERLANE_SHIFT_2_MESSAGE:0 "Galactic HyperLane Shift"
- EHL_HYPERLANE_SHIFT_2_DESC:0 "$SYSTEM|Y$ has lost a HyperLane connection"
+ EHL_HYPERLANE_SHIFT_2_DESC:0 "$SYSTEM|Y$ has lost a HyperLane connection to $TO_SYSTEM|Y$"
  EHL_HYPERLANE_SHIFT_3_TITLE:0 "Progenitor Hyperlane Shift"
  EHL_HYPERLANE_SHIFT_3_MESSAGE:0 "Progenitor HyperLane Shift"
- EHL_HYPERLANE_SHIFT_3_DESC:0 "$SYSTEM|Y$ has experienced a Hyperlane Shift due to a HyperLane Progenitor"
+ EHL_HYPERLANE_SHIFT_3_DESC:0 "$SYSTEM|Y$ has gained a HyperLane to $TO_SYSTEM|Y$ due to a $sm_hyperlane_progenitor$"
  EHL_HYPERLANE_SHIFT_4_TITLE:0 "Disentangler Hyperlane Shift"
  EHL_HYPERLANE_SHIFT_4_MESSAGE:0 "Disentangler HyperLane Shift"
- EHL_HYPERLANE_SHIFT_4_DESC:0 "$SYSTEM|Y$ has lost a Hyperlane due to a Disentangler"
+ EHL_HYPERLANE_SHIFT_4_DESC:0 "$SYSTEM|Y$ has lost a Hyperlane to $TO_SYSTEM|Y$ due to a $sm_hyperlane_disentangler$"
+
  #TECH
  tech_hyperlane_manipulation:0 "Hyperlane Manipulation"
- tech_hyperlane_manipulation_desc:0 "Grants our starbases the potential to create, unravel or stabalize hyperlanes around stars." 
+ tech_hyperlane_manipulation_desc:0 "Grants our starbases the potential to create or stabalize hyperlanes around stars." 
+ tech_hyperlane_removal:0 "Hyperlane Removal"
+ tech_hyperlane_removal_desc:0 "Grants our starbases the potential to unravel hyperlanes around stars." 
  tech_hyperlane_manipulation_random:0 "Hyperlane Manipulation"
- tech_hyperlane_manipulation_random_desc:0 "Grants our starbases the potential to create, unravel or stabalize hyperlanes around stars." 
+ tech_hyperlane_manipulation_random_desc:0 "Grants our starbases the potential to create or stabalize hyperlanes around stars." 
+ tech_hyperlane_removal_random:0 "Hyperlane Removal"
+ tech_hyperlane_removal_random_desc:0 "Grants our starbases the potential to unravel hyperlanes around stars." 
+
  #STARBASE BUILDINGS
  sm_hyperlane_progenitor:0 "Hyperlane Progenitor"
  sm_hyperlane_progenitor_desc:0 "Exploits periodic fluctuations eminating from pulsars, generating new hyperlanes to nearby stars after priming. \nPriming Time: §G1 Year§!\n"
@@ -27,10 +33,12 @@
  sm_hyperlane_disentangler_r:0 "Hyperlane Disentangler"
  sm_hyperlane_disentangler_r_desc:0 "Injects a large amount of energy into existing hyperlanes, destablizing and disconnecting two stars after priming. \n\nAnnual Hyperlane Disentanglement Chance: §G20%§!"
  sm_hyperlane_registrar:0 "Hyperlane Registrar"
- sm_hyperlane_registrar_desc:0 "Stabilizes existing hyperlanes around the star it is built, preventing new hyperlanes from forming or existing hyperlanes from disconnecting. Provides a defensive aura."
+ sm_hyperlane_registrar_desc:0 "Stabilizes existing hyperlanes around the star it is built, preventing new hyperlanes from forming or existing hyperlanes from disconnecting. Provides a defensive aura. \nStabilization Time: §G1 Month§!\n"
  only_one_hyperlane:0 "Only one hyperlane building per starbase"
+
  #COMPONENT_TEMPLATE
  aura_starbase_hyperlane_registar:0 "Defensive Aura - Hyperlane Registrar"
+
  #EVENTS
  ehl_menu_event.6.name:0 "The Galactic HyperLanes"
  ehl_menu_event.6.desc:0 "Our recent discovery of the galactic hyperlanes and hyperdrive technology has resulted in new insights. \nOur Scientists state that hyperlanes, like all things in the cosmos are not static or fixed. They grow or change with time. Pulsars appear to be the source of this phenomenon, exactly how remains unanswered. Pulsars have unstable hyperlanes, while the galactic hyperlanes ebb and flow with time. Manipulating this phenomenon is being discussed among the scientific community. \n\n You may choose standard or custom settings below"

@@ -490,6 +490,7 @@ event = {
 										has_star_flag = ehl_special_system
 									}
 								}
+								save_event_target_as = ehl_progenitor_r_target_system
 								add_hyperlane = {
 									from = THIS
 									to = event_target:ehl_progenitor_r_system
@@ -507,6 +508,11 @@ event = {
 											type = name
 											localization = SYSTEM
 											scope = event_target:ehl_progenitor_r_system
+										}
+										variable = {
+											type = name
+											localization = TO_SYSTEM
+											scope = event_target:ehl_progenitor_r_target_system
 										}
 									}
 								}

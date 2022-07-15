@@ -1,0 +1,31 @@
+ehl_is_special_star = {
+	OR = {
+		has_star_flag = sealed_system
+		has_star_flag = extragalactic_cluster
+		has_star_flag = lcluster
+		has_star_flag = mem_sadrell_extant_cluster
+		has_star_flag = outercluster
+		has_star_flag = egs_cluster # extra galactic cluster start
+		has_star_flag = giga_galactic_center # gigastructures galatic core
+	}
+}
+
+ehl_is_pulsar = {
+	OR = {
+		is_star_class = sc_pulsar
+		is_star_class = sc_binary_1 # Realspace
+		is_star_class = sc_binary_pl_pl # Realspace
+		is_star_class = sc_binary_pl_n # Realspace
+		is_star_class = sc_magnetar # Realspace
+		is_star_class = sc_microquasar_1 # Realspace
+		is_star_class = sc_microquasar_2 # Realspace
+	}
+}
+
+
+ehl_no_link_system = {
+	OR = {
+		has_star_flag = ehl_special_system
+		has_star_flag = ehl_hlr
+	}
+}

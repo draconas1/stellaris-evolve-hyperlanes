@@ -17,13 +17,22 @@ on_press_begin = {
 on_monthly_pulse_country = {
 	events = {
 		ehl_diss_event.30 # check dientanglers
-		ehl_event.5 # check to see if we need to remove the hyperlane registrar flag
 		ehl_proj_event.10 # check progentiors
+		ehl_event.4 # check hyperlane registrars
+		ehl_event.5 # check to see if we need to remove the hyperlane registrar flag
 		
 		ehl_proj_event.21 # check random progenitor system flags
 		ehl_proj_event.22 # remove random progenitor system flags
 		ehl_diss_event.41 # check random disentangler system flags
 		ehl_diss_event.42 # remove random disentangler system flags
+	}
+}
+
+on_bi_yearly_pulse_country = {
+	events = {
+		ehl_ai_event.1 # create hyperlanes to ununowned systems to expand to
+		ehl_ai_event.2 # create hyperlanes to systems owned by anyone not us
+		ehl_ai_event.3 # create hyperlanes to empires we are attacking
 	}
 }
 
@@ -66,26 +75,5 @@ on_bi_yearly_pulse = {
 on_mid_game_pulse = {
 	events = {
 		ehl_event.60
-	}
-}
-
-# A Megastructure has been built
-# Root = Country
-# From = Megastructure
-# FromFrom = System
-# FromFromFrom = Fleet
-on_megastructure_built = {
-	events = {
-		ehl_event.10
-	}
-}
-
-# A Megastructure has been upgraded
-# Root = Country
-# From = Megastructure
-# FromFrom = System
-on_megastructure_upgraded = {
-	events = {
-		ehl_event.10
 	}
 }

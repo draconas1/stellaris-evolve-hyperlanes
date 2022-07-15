@@ -10,7 +10,6 @@
 #	auto_opens = others								# Specifies if the message should be auto opened or not, valid: 'none', 'player', 'others' and 'all' (default: 'player). Some messages as events are ignoring this since thay have their own option.
 #	ping = "ping_notification_green"					# Ping map to use for map visualization.
 #}
-
 message_type = {
 	key = "EHL_HYPERLANE_SHIFT_1"
 	icon = "GFX_ehl_message_hyperlane"

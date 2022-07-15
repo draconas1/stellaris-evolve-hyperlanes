@@ -47,7 +47,7 @@ hyperlane_disentangler = {
 	
 	potential = {
 		exists = owner
-		owner = { has_technology = tech_hyperlane_manipulation }
+		owner = { has_technology = tech_hyperlane_removal }
 	}
 	
 	possible = {
@@ -75,7 +75,7 @@ hyperlane_disentangler = {
 		}
 	}
 	
-	show_in_tech = "tech_hyperlane_manipulation"
+	show_in_tech = "tech_hyperlane_removal"
 	
 	ai_build_at_chokepoint = no
 	ai_build_outside_chokepoint = no
@@ -135,7 +135,7 @@ hyperlane_disentangler_r = {
 	
 	potential = {
 		exists = owner
-		owner = { has_technology = tech_hyperlane_manipulation_random }
+		owner = { has_technology = tech_hyperlane_removal_random }
 	}
 	
 	possible = {
@@ -163,7 +163,7 @@ hyperlane_disentangler_r = {
 		}
 	}
 	
-	show_in_tech = "tech_hyperlane_manipulation_random"
+	show_in_tech = "tech_hyperlane_removal_random"
 	
 	ai_build_at_chokepoint = no
 	ai_build_outside_chokepoint = yes
