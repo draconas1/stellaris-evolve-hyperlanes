@@ -1,8 +1,9 @@
-version="2"
+version="4"
 tags={
 	"Gameplay"
 	"Galaxy Generation"
 }
 name="Evolving Hyperlanes Redux"
-supported_version="3.4.*"
 picture="thumbnail.png"
+supported_version="3.4.*"
+remote_file_id="2836653877"

@@ -90,11 +90,9 @@ event = {
 		#Check if star is no longer isolated
 		every_system = {
 			limit = {
-				AND = {
-					has_star_flag = ehl_isolated
-					any_neighbor_system_euclidean  = {
-						has_hyperlane_to = PREV
-					}
+				has_star_flag = ehl_isolated
+				any_neighbor_system_euclidean  = {
+					has_hyperlane_to = PREV
 				}
 			}
 			remove_star_flag = ehl_isolated

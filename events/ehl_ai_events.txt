@@ -91,8 +91,6 @@ country_event = {
 	immediate = {
 		# first try to expand by going to an edge node to somewhere that isn't owned
 		# then try from anywhere to somewhere that isn't owned
-		log = "Linking to unowned for [Root.GetName]"
-
 		random_system_within_border = {
 			limit = {
 				# edge system as it only has a hyperlink to one other empire system
@@ -121,7 +119,7 @@ country_event = {
 					}
 				}
 				save_event_target_as = target_system
-				log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in first attempt (edges)"
+				#log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in first attempt (edges)"
 				add_hyperlane = {
 					from = this
 					to = prev
@@ -155,7 +153,7 @@ country_event = {
 						}
 					}
 					save_event_target_as = target_system
-					log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in second attempt (any)"
+					#log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in second attempt (any)"
 					add_hyperlane = {
 						from = this
 						to = prev
@@ -178,7 +176,6 @@ country_event = {
 	}
 
 	immediate = {
-		log = "Linking to not owned by us for [Root.GetName]"
 		random_system_within_border = {
 			limit = {
 				any_neighbor_system_euclidean = {		
@@ -198,14 +195,14 @@ country_event = {
 						# do not make links to militant isolationists
 						AND = {
 							has_owner = yes
-							owener = {
+							owner = {
 								is_fallen_empire = yes
 								is_xenophobe = yes
 							}
 						}
 					}
 				}
-				log = "Linking to not owned by us for [Root.GetName] found [This.GetName] and [Prev.GetName]"
+				#log = "Linking to not owned by us for [Root.GetName] found [This.GetName] and [Prev.GetName]"
 				add_hyperlane = {
 					from = this
 					to = prev
@@ -223,7 +220,6 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		log = "Linking to war by us for [Root.GetName]"
 		if = {
 			limit = {
 				any_war = {
@@ -234,7 +230,7 @@ country_event = {
 					attacker_war_exhaustion < 0.8
 				}
 			}
-			log = "[Root.GetName] is an attacker with < 80% war exhaustion"
+			#log = "[Root.GetName] is an attacker with < 80% war exhaustion"
 			random_system_within_border = {
 				limit = {
 					any_neighbor_system_euclidean = {		
@@ -265,7 +261,7 @@ country_event = {
 							has_hyperlane_to = prev
 						}
 					}
-					log = "[Root.GetName] found offensive hyperlane target from [Prev.GetName] to [This.GetName]"
+					#log = "[Root.GetName] found offensive hyperlane target from [Prev.GetName] to [This.GetName]"
 					add_hyperlane = {
 						from = this
 						to = prev

@@ -74,6 +74,6 @@ on_bi_yearly_pulse = {
 # No scope, like on_game_start
 on_mid_game_pulse = {
 	events = {
-		ehl_event.60
+		ehl_event.60 # connect isolated systems
 	}
 }
