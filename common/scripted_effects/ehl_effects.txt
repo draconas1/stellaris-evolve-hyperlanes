@@ -3,6 +3,9 @@
 # so into an effect it went.  Takes a count parameter for how many stars
 # fallback I was considering was making it a country event and then just using random_country to scope it, because it doesn't need a scope so doesn't care
 ehl_create_hyperlanes = {
+	# not sure how much of an effect this has, in theory it will have some as the new / removed hyperlanes require a recalc of
+	# travel distances, so batching them will be more efficient.  
+	set_spawn_system_batch = begin
 	while = {
 		count = $COUNT$
 		random_system = {
@@ -94,11 +97,14 @@ ehl_create_hyperlanes = {
 			}
 		}		
 	}
+	set_spawn_system_batch = end
 }
 
 # Same deal with scopes etc as above
 ehl_remove_hyperlanes = {
+	set_spawn_system_batch = begin
 	while = {
+		
 		count = $COUNT$
 		random_system = {
 			limit = {
@@ -200,9 +206,11 @@ ehl_remove_hyperlanes = {
 			
 		}				
 	}
+	set_spawn_system_batch = end
 }
 
 ehl_add_pulsar_hyperlanes = {
+	set_spawn_system_batch = begin
 	while = {
 		count = $COUNT$
 		random_system = {
@@ -272,9 +280,11 @@ ehl_add_pulsar_hyperlanes = {
 			}
 		}
 	}
+	set_spawn_system_batch = end
 }
 
 ehl_remove_pulsar_hyperlanes = {
+	set_spawn_system_batch = begin
 	while = {
 		count = $COUNT$
 		random_system = {
@@ -348,4 +358,5 @@ ehl_remove_pulsar_hyperlanes = {
 			}
 		}
 	}
+	set_spawn_system_batch = end
 }
