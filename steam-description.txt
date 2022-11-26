@@ -1,4 +1,4 @@
-[h1]Evolving Hyperlanes Redux (3.4)[/h1]
+[h1]Evolving Hyperlanes Redux (3.6)[/h1]
 An update and refresh of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1733757326]Arkys Evolving Hyperlanes[/url].  With permission from Arky
 
 This mod helps grow out the exploration phase by making some stars inaccessible at game start, and by having the hyperlane network shift and evolve over time.

@@ -5,5 +5,5 @@ tags={
 }
 name="Evolving Hyperlanes Redux"
 picture="thumbnail.png"
-supported_version="3.4.*"
+supported_version="3.6.*"
 remote_file_id="2836653877"
