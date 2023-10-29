@@ -30,9 +30,9 @@ on_monthly_pulse_country = {
 
 on_bi_yearly_pulse_country = {
 	events = {
-		ehl_ai_event.1 # create hyperlanes to ununowned systems to expand to
-		ehl_ai_event.2 # create hyperlanes to systems owned by anyone not us
-		ehl_ai_event.3 # create hyperlanes to empires we are attacking
+		#ehl_ai_event.1 # create hyperlanes to ununowned systems to expand to
+		#ehl_ai_event.2 # create hyperlanes to systems owned by anyone not us
+		#ehl_ai_event.3 # create hyperlanes to empires we are attacking
 	}
 }
 
@@ -68,6 +68,7 @@ on_bi_yearly_pulse = {
 		ehl_event.77
 		ehl_event.78
 		ehl_event.79
+		ehl_ai_event.100 # Fake AI having progenitors
 	}
 }
 
