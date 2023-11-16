@@ -3,9 +3,7 @@ namespace = ehl_ai_event
 # Because the AI sucks, a set of events to make it seem like they are using a progenitor / disentangler 
 
 
-
-
-
+# Quick hack to replace the 3 below events with a single event that can run all the AI actions in a single spawn batch
 event = {
 	id = ehl_ai_event.100
 	hide_window = yes
@@ -17,12 +15,7 @@ event = {
 		# "create hyperlanes to unowned systems"
 		every_country = {
 			limit = {
-				is_ai = yes
-				is_country_type = default
-				OR = {
-					has_technology = tech_hyperlane_manipulation_random
-					has_technology = tech_hyperlane_manipulation
-				}
+				ehl_country_can_make_hyperlanes = yes
 			}
 			set_variable = {
 				which = starFound
@@ -109,12 +102,7 @@ event = {
 		# try to link to anywhere not owned by us
 		every_country = {
 			limit = {
-				is_ai = yes
-				is_country_type = default
-				OR = {
-					has_technology = tech_hyperlane_manipulation_random
-					has_technology = tech_hyperlane_manipulation
-				}
+				ehl_country_can_make_hyperlanes = yes
 			}
 
 			random_system_within_border = {
@@ -159,20 +147,15 @@ event = {
 		# Wartime, link systems
 		every_country = {
 			limit = {
-				is_ai = yes
-				is_country_type = default
+				ehl_country_can_make_hyperlanes = yes
 				is_at_war = yes
-				OR = {
-					has_technology = tech_hyperlane_manipulation_random
-					has_technology = tech_hyperlane_manipulation
-				}
 			}
 
 			if = {
 				limit = {
 					any_war = {
 						is_war_participant = {
-							who = root
+							who = prev
 							side = attackers
 						}
 						attacker_war_exhaustion < 0.8
@@ -183,7 +166,7 @@ event = {
 					limit = {
 						any_neighbor_system_euclidean = {
 							owner = {
-								is_at_war_with = root
+								is_at_war_with = prevprev
 								is_war_participant = {
 									who = prev
 									side = defenders
@@ -198,7 +181,7 @@ event = {
 					random_neighbor_system_euclidean = {
 						limit = {
 							owner = {
-								is_at_war_with = root
+								is_at_war_with = prevprev
 								is_war_participant = {
 									who = prev
 									side = defenders
@@ -224,280 +207,3 @@ event = {
 
 
 
-
-
-
-# Background
-# Trigger the "create hyperlanes to unowned systems" at some point this year
-# (spreads them out across the year to avoid 1st January being hyperlane tastic and predictable.
-country_event = {
-	id = ehl_ai_event.1
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_ai = yes
-		is_country_type = default
-		OR = {
-			has_technology = tech_hyperlane_manipulation_random
-			has_technology = tech_hyperlane_manipulation
-		}
-	}
-
-	immediate = {
-		country_event = {
-			id = ehl_ai_event.10
-			days = 30
-			random = 300
-		}
-	}
-}
-
-
-
-
-
-
-# Background
-# Trigger the "create hyperlanes to any system not owned by us" at some point this year
-# (spreads them out across the year to avoid 1st January being hyperlane tastic and predictable.
-country_event = {
-	id = ehl_ai_event.2
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_ai = yes
-		is_country_type = default
-		OR = {
-			has_technology = tech_hyperlane_manipulation_random
-			has_technology = tech_hyperlane_manipulation
-		}
-	}
-
-	immediate = {
-		country_event = {
-			id = ehl_ai_event.20
-			days = 30
-			random = 300
-		}
-	}
-}
-
-# Background
-# Trigger the "create hyperlanes to systems of empires we are at war with" at some point this year
-# (spreads them out across the year to avoid 1st January being hyperlane tastic and predictable.
-country_event = {
-	id = ehl_ai_event.3
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_ai = yes
-		is_country_type = default
-		is_at_war = yes
-		OR = {
-			has_technology = tech_hyperlane_manipulation_random
-			has_technology = tech_hyperlane_manipulation
-		}
-	}
-
-	immediate = {
-		country_event = {
-			id = ehl_ai_event.30
-			days = 30
-			random = 300
-		}
-	}
-}
-
-
-# try to link to palces that aren't owned
-country_event = {
-	id = ehl_ai_event.10
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		# first try to expand by going to an edge node to somewhere that isn't owned
-		# then try from anywhere to somewhere that isn't owned
-		random_system_within_border = {
-			limit = {
-				# edge system as it only has a hyperlink to one other empire system
-				owner = {
-					count_system_within_border = {
-						count < 2
-						limit = {
-							has_hyperlane_to = prevprev
-						}
-					}
-				}				
-				any_neighbor_system_euclidean = {		
-					has_owner = no
-					ehl_no_link_system = no	
-					NOR = {						
-						has_hyperlane_to = prev
-					}
-				}				
-			}
-			random_neighbor_system_euclidean = {
-				limit = {
-					has_owner = no
-					ehl_no_link_system = no
-					NOR = {						
-						has_hyperlane_to = prev
-					}
-				}
-				save_event_target_as = target_system
-				#log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in first attempt (edges)"
-				add_hyperlane = {
-					from = this
-					to = prev
-				}
-			}
-		}
-
-		# only try again if we failed to find an edge node
-		# try from anywhere to somewhere that isn't owned
-		if = {
-			limit =  {
-				NOT = { exists = event_target:target_system }
-			}
-
-			random_system_within_border = {
-				limit = {
-					any_neighbor_system_euclidean = {		
-						has_owner = no
-						ehl_no_link_system = no
-						NOR = {
-							has_hyperlane_to = prev
-						}
-					}				
-				}
-				random_neighbor_system_euclidean = {
-					limit = {
-						has_owner = no
-						ehl_no_link_system = no
-						NOR = {
-							has_hyperlane_to = prev	
-						}
-					}
-					save_event_target_as = target_system
-					#log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in second attempt (any)"
-					add_hyperlane = {
-						from = this
-						to = prev
-					}
-				}
-			}
-		}
-	}
-}
-
-# try to link to anywhere not owned by us
-country_event = {
-	id = ehl_ai_event.20
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		is_ai = yes
-		is_country_type = default
-	}
-
-	immediate = {
-		random_system_within_border = {
-			limit = {
-				any_neighbor_system_euclidean = {		
-					ehl_no_link_system = no
-					NOR = {
-						is_owned_by = root
-						has_hyperlane_to = prev
-					}
-				}				
-			}
-			random_neighbor_system_euclidean = {
-				limit = {
-					ehl_no_link_system = no
-					NOR = {
-						is_owned_by = root
-						has_hyperlane_to = prev
-						# do not make links to militant isolationists
-						AND = {
-							has_owner = yes
-							owner = {
-								is_fallen_empire = yes
-								is_xenophobe = yes
-							}
-						}
-					}
-				}
-				#log = "Linking to not owned by us for [Root.GetName] found [This.GetName] and [Prev.GetName]"
-				add_hyperlane = {
-					from = this
-					to = prev
-				}
-			}
-		}
-	}
-}
-
-
-# early in the war try to create hyperlanes to empires we are at war with
-country_event = {
-	id = ehl_ai_event.30
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = {
-				any_war = {
-					is_war_participant = {
-						who = root
-						side = attackers
-					}
-					attacker_war_exhaustion < 0.8
-				}
-			}
-			#log = "[Root.GetName] is an attacker with < 80% war exhaustion"
-			random_system_within_border = {
-				limit = {
-					any_neighbor_system_euclidean = {		
-						owner = {
-							is_at_war_with = root
-							is_war_participant = {
-								who = prev
-								side = defenders
-							}
-						}
-						ehl_no_link_system = no
-						NOR = {
-							has_hyperlane_to = prev	
-						}
-					}				
-				}
-				random_neighbor_system_euclidean = {
-					limit = {
-						owner = {
-							is_at_war_with = root
-							is_war_participant = {
-								who = prev
-								side = defenders
-							}
-						}
-						ehl_no_link_system = no
-						NOR = {
-							has_hyperlane_to = prev
-						}
-					}
-					#log = "[Root.GetName] found offensive hyperlane target from [Prev.GetName] to [This.GetName]"
-					add_hyperlane = {
-						from = this
-						to = prev
-					}
-				}
-			}
-		}		
-	}
-}

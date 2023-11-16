@@ -7,6 +7,10 @@ ehl_is_special_star = {
 		has_star_flag = outercluster
 		has_star_flag = egs_cluster # extra galactic cluster start
 		has_star_flag = giga_galactic_center # gigastructures galatic core
+		has_star_flag = surveillance_supercomputer_system# Ultima Vigilis
+		has_star_flag = chosen_system# All the chosens set
+		has_star_flag = solarpunk_system_02 # Daacha
+		has_star_flag = sealed_system# isolated system
 	}
 }
 
@@ -27,5 +31,17 @@ ehl_no_link_system = {
 	OR = {
 		has_star_flag = ehl_special_system
 		has_star_flag = ehl_hlr
+	}
+}
+
+ehl_country_can_make_hyperlanes = {
+	is_ai = yes
+	is_country_type = default
+	OR = {
+		has_technology = tech_hyperlane_manipulation_random
+		has_technology = tech_hyperlane_manipulation
+	}
+	NOT = {
+		has_country_flag = chosen_empire
 	}
 }
