@@ -11,6 +11,10 @@ ehl_is_special_star = {
 		has_star_flag = chosen_system# All the chosens set
 		has_star_flag = solarpunk_system_02 # Daacha
 		has_star_flag = sealed_system# isolated system
+		has_star_flag = ehof_compound_system# gigastructures compound
+		has_star_flag = maginot_anti_jump_star # gigastructures Maginot World subspace disruption
+		has_star_flag = siegfried_anti_jump_star # gigastructures Katzen version
+		has_star_flag = cohesive_system # gigastructures ehof cohesive
 	}
 }
 
